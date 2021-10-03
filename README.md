@@ -18,6 +18,11 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 * Command history with up/down arrows
 * TAB completion
 * Fullscreen mode (default)
+* Procedure parameters/arguments, i.e. `to foo :bar`
+* Arithmetic operations
+* Lists
+* GC... (perhaps use an off-the-shelf crate for this)
+* Line colours
 
 ## Useful references:
 
