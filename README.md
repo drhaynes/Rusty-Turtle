@@ -59,7 +59,7 @@ _QLogo is a Logo interpreter developed using C++ and Qt. New features include ha
 
 ---
 
-###Tail Recursion with Dynamic Scope by Darius Bacon
+### Tail Recursion with Dynamic Scope by Darius Bacon
 
 >This revision of a comp.lang.scheme article assumes you're fluent in Lisp and have a basic acquaintance with tail recursion and dynamic scoping of variables.
 
