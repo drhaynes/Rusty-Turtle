@@ -21,7 +21,7 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 
 ## Useful references:
 
-#### Berkeley Logo
+#### Berkeley Logo (UCBLogo)
 
 User Manual:
 [https://people.eecs.berkeley.edu/~bh/usermanual](https://people.eecs.berkeley.edu/~bh/usermanual)
@@ -34,6 +34,14 @@ Terminal implementation details:
 
 Understanding the UCBLogo evaluator:
 [https://github.com/jrincayc/ucblogo-code/blob/master/plm](https://github.com/jrincayc/ucblogo-code/blob/master/plm)
+
+---
+
+### QLogo
+
+_QLogo is a Logo interpreter developed using C++ and Qt. New features include hardware-accelerated graphics and Unicode text._
+
+[https://github.com/jasonsikes/QLogo](https://github.com/jasonsikes/QLogo)
 
 ---
 
@@ -53,3 +61,26 @@ Understanding the UCBLogo evaluator:
 [http://web.archive.org/web/20090102070914/http://www.accesscom.com/~darius/writings/dynatail.html](http://web.archive.org/web/20090102070914/http://www.accesscom.com/~darius/writings/dynatail.html)
 
 ---
+
+### History of LOGO (C. Solomon et al.)
+[https://people.eecs.berkeley.edu/~bh/HOPL.pdf](https://people.eecs.berkeley.edu/~bh/HOPL.pdf)
+
+---
+
+
+### Computer Science Logo Style
+
+Volume 1: Symbolic Computing
+[https://people.eecs.berkeley.edu/~bh/v1-toc2.html](https://people.eecs.berkeley.edu/~bh/v1-toc2.html)
+
+Volume 2: Advanced Techniques
+[https://people.eecs.berkeley.edu/~bh/v2-toc2.html](https://people.eecs.berkeley.edu/~bh/v2-toc2.html)
+
+Volume 3: Beyond Programming
+[https://people.eecs.berkeley.edu/~bh/v3-toc2.html](https://people.eecs.berkeley.edu/~bh/v3-toc2.html)
+
+---
+
+### LOGO Foundation Books List
+
+[https://el.media.mit.edu/logo-foundation/resources/books.html](https://el.media.mit.edu/logo-foundation/resources/books.html)
