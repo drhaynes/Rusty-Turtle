@@ -13,6 +13,10 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 	* `to foo ... end`
 	* `save str`
 	* `load str`
+	* `make`
+	* `test`
+	* `iftrue` `iffalse`
+	* `print`
 * Keep scrollback in terminal
 * `>` Prompt
 * Command history with up/down arrows
@@ -23,6 +27,8 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 * Lists
 * GC... (perhaps use an off-the-shelf crate for this)
 * Line colours
+* Screenshots
+* Printer support
 
 ## Useful references:
 
