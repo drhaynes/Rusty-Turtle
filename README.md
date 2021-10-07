@@ -2,7 +2,9 @@
 A minimal Logo programming environment written in Rust, using egui for UI.
 
 ## TODO
-* Draw turtle on canvas
+* Draw turtle on canvas:
+	* For how to achieve this, see: [https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/fractal_clock.rs](https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/fractal_clock.rs) (specifically use of `Painter` and `Stroke` and the `draw()` function).
+	* egui's epaint API documented here: [https://docs.rs/epaint/0.14.0/epaint/](https://docs.rs/epaint/0.14.0/epaint/)
 * Read input from buffer
 * Keywords:
 	* `fd`
@@ -17,10 +19,14 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 	* `test`
 	* `iftrue` `iffalse`
 	* `print`
-* Keep scrollback in terminal
-* `>` Prompt
-* Command history with up/down arrows
-* TAB completion
+* Terminal / REPL:
+	* References:
+		* Jonathan Blow, drop down console implementation: [https://www.youtube.com/watch?v=jjTzVMq_M3M](https://www.youtube.com/watch?v=jjTzVMq_M3M)
+		* [https://github.com/alacritty/alacritty](https://github.com/alacritty/alacritty)
+	* Keep scrollback in terminal
+	* `>` Prompt
+	* Command history with up/down arrows
+	* TAB completion
 * Fullscreen mode (default)
 * Procedure parameters/arguments, i.e. `to foo :bar`
 * Arithmetic operations
@@ -29,6 +35,7 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 * Line colours
 * Screenshots
 * Printer support
+* Tail recursion optimisation (see below references for implementation details)
 
 ## Useful references:
 
@@ -70,6 +77,14 @@ _QLogo is a Logo interpreter developed using C++ and Qt. New features include ha
 >This revision of a comp.lang.scheme article assumes you're fluent in Lisp and have a basic acquaintance with tail recursion and dynamic scoping of variables.
 
 [http://web.archive.org/web/20090102070914/http://www.accesscom.com/~darius/writings/dynatail.html](http://web.archive.org/web/20090102070914/http://www.accesscom.com/~darius/writings/dynatail.html)
+
+---
+
+### IBM Logo Manual
+
+_The manual included with a copy of Logo for IBM PCs from circa. 1983._
+
+[https://archive.org/details/ibm_logo_manual](https://archive.org/details/ibm_logo_manual)
 
 ---
 

@@ -72,6 +72,7 @@ impl epi::App for TemplateApp {
 
         egui::TopBottomPanel::bottom("code_area").show(ctx, |bottom| {
             bottom.heading("Enter commands:");
+            bottom.label(format!("{}", value));
             bottom.label(">");
             bottom.text_edit_singleline(label);
             egui::warn_if_debug_build(bottom);

@@ -1,0 +1,2 @@
+[workspace]
+members = ["rusty-turtle", "crates/*"]
