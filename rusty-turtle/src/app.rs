@@ -1,28 +1,27 @@
 use eframe::{egui, epi};
+use eframe::egui::{Color32, Frame, Painter, Pos2, Rgba};
+use eframe::epi::egui::{emath, Rect, Ui};
 
 /// We derive Deserialize/Serialize so we can persist app state on shutdown.
 #[cfg_attr(feature = "persistence", derive(serde::Deserialize, serde::Serialize))]
 #[cfg_attr(feature = "persistence", serde(default))] // if we add new fields, give them default values when deserializing old state
-pub struct TemplateApp {
-    // Example stuff:
+pub struct LogoApp {
     label: String,
-
-    // this how you opt-out of serialization of a member
-    #[cfg_attr(feature = "persistence", serde(skip))]
-    value: f32,
+    zoom: f32,
+    line_width: f32
 }
 
-impl Default for TemplateApp {
+impl Default for LogoApp {
     fn default() -> Self {
         Self {
-            // Example stuff:
             label: "Hello World!".to_owned(),
-            value: 2.7,
+            zoom: 1.0,
+            line_width: 2.5
         }
     }
 }
 
-impl epi::App for TemplateApp {
+impl epi::App for LogoApp {
     fn name(&self) -> &str {
         "Rusty Turtle"
     }
@@ -52,7 +51,7 @@ impl epi::App for TemplateApp {
     /// Called each time the UI needs repainting, which may be many times per second.
     /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
     fn update(&mut self, ctx: &egui::CtxRef, frame: &mut epi::Frame<'_>) {
-        let Self { label, value } = self;
+        //let Self { label, zoom, line_width } = self;
 
         // Examples of how to create different panels and windows.
         // Pick whichever suits you.
@@ -70,18 +69,15 @@ impl epi::App for TemplateApp {
             });
         });
 
+        egui::CentralPanel::default().frame(Frame::dark_canvas(&ctx.style()))
+            .show(ctx, |ui| self.draw_turtle_canvas(ui));
+
         egui::TopBottomPanel::bottom("code_area").show(ctx, |bottom| {
             bottom.heading("Enter commands:");
             bottom.label(format!("{}", value));
             bottom.label(">");
-            bottom.text_edit_singleline(label);
+            bottom.text_edit_singleline(&mut self.label);
             egui::warn_if_debug_build(bottom);
-        });
-
-        egui::CentralPanel::default().show(ctx, |ui| {
-            // The central panel the region left after adding TopPanel's and SidePanel's
-
-            ui.heading("Turtle will go here");
         });
 
         if false {
@@ -92,5 +88,28 @@ impl epi::App for TemplateApp {
                 ui.label("You would normally chose either panels OR windows.");
             });
         }
+    }
+}
+
+impl LogoApp {
+    pub fn draw_turtle_canvas(&mut self, ui: &mut Ui) {
+        ui.ctx().request_repaint();
+
+        let painter = Painter::new(
+            ui.ctx().clone(),
+            ui.layer_id(),
+            ui.available_rect_before_wrap()
+        );
+        self.paint(&painter);
+        ui.expand_to_include_rect(painter.clip_rect());
+    }
+
+    fn paint(&mut self, painter: &Painter) {
+        let rect = painter.clip_rect();
+        let to_screen = emath::RectTransform::from_to(
+            Rect::from_center_size(Pos2::ZERO, rect.square_proportions() / self.zoom),
+            rect
+        );
+
     }
 }
