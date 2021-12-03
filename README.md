@@ -20,6 +20,7 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 	* `iftrue` `iffalse`
 	* `print`
 * Terminal / REPL:
+	* I think this can be achieved mostly with: [https://github.com/kkawakam/rustyline](https://github.com/kkawakam/rustyline)
 	* References:
 		* Jonathan Blow, drop down console implementation: [https://www.youtube.com/watch?v=jjTzVMq_M3M](https://www.youtube.com/watch?v=jjTzVMq_M3M)
 		* [https://github.com/alacritty/alacritty](https://github.com/alacritty/alacritty)
@@ -27,6 +28,7 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 	* `>` Prompt
 	* Command history with up/down arrows
 	* TAB completion
+
 * Fullscreen mode (default)
 * Procedure parameters/arguments, i.e. `to foo :bar`
 * Arithmetic operations
