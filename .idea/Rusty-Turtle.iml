@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/console/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/console_egui/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rusty-turtle/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/parser/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/rusty-turtle/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
