@@ -7,8 +7,14 @@ enum AST {
 }
 
 trait Parser {
+    fn parse(string: &str) -> Result<AST, ParseError>;
+}
+
+struct LogoParser {}
+
+impl Parser for LogoParser {
     fn parse(string: &str) -> Result<AST, ParseError> {
-        unimplemented!();
+        todo!()
     }
 }
 

@@ -1,6 +1,16 @@
 # Rusty-Turtle
 A minimal Logo programming environment written in Rust, using egui for UI.
 
+### Compatibility
+
+This version aims to be compatible with UCBLogo, treating it as the de-facto standard in lieu of an actual Logo standard.
+
+### Parser and Grammar
+
+The parser is a single-character look-ahead recursive-descent parser (vs something using a parser-generator). It uses [Lyn](https://github.com/rapodaca/lyn) for convenience of implementation.
+
+Grammar rules are taken from the UCBLogo implementation source code, as their exists no official formal grammar for Logo.
+
 ## TODO
 * Draw turtle on canvas:
 	* For how to achieve this, see: [https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/fractal_clock.rs](https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/fractal_clock.rs) (specifically use of `Painter` and `Stroke` and the `draw()` function).
