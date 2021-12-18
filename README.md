@@ -20,14 +20,15 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 	* `iftrue` `iffalse`
 	* `print`
 * Terminal / REPL:
-	* I think this can be achieved mostly with: [https://github.com/kkawakam/rustyline](https://github.com/kkawakam/rustyline)
-	* References:
-		* Jonathan Blow, drop down console implementation: [https://www.youtube.com/watch?v=jjTzVMq_M3M](https://www.youtube.com/watch?v=jjTzVMq_M3M)
-		* [https://github.com/alacritty/alacritty](https://github.com/alacritty/alacritty)
-	* Keep scrollback in terminal
-	* `>` Prompt
-	* Command history with up/down arrows
-	* TAB completion
+    * I think this can be achieved mostly with: [https://github.com/kkawakam/rustyline](https://github.com/kkawakam/rustyline)
+    * But maybe a better option would be Herbert Wolverson's crates (Hands-on Rust author)
+    * References:
+        * Jonathan Blow, drop down console implementation: [https://www.youtube.com/watch?v=jjTzVMq_M3M](https://www.youtube.com/watch?v=jjTzVMq_M3M)
+        * [https://github.com/alacritty/alacritty](https://github.com/alacritty/alacritty)
+    * Keep scrollback in terminal
+    * `>` Prompt
+    * Command history with up/down arrows
+    * TAB completion
 
 * Fullscreen mode (default)
 * Procedure parameters/arguments, i.e. `to foo :bar`
@@ -54,6 +55,36 @@ Terminal implementation details:
 
 Understanding the UCBLogo evaluator:
 [https://github.com/jrincayc/ucblogo-code/blob/master/plm](https://github.com/jrincayc/ucblogo-code/blob/master/plm)
+
+Quotes:
+
+>I'm not trying to argue that dynamic scope is perfect, either.
+I'm arguing that the unquestioned superiority of lexical scope for serious
+programming has a high cost in required expertise, and that for beginners
+the cost may outweigh the benefit.  Dynamic scope is, imho, part of the
+"no threshold" promise of Logo. - Brian Harvey
+
+> Serious versions of Logo (which included LCSI versions prior to
+LogoWriter) have a pause-on-error feature that's a real help in
+debugging.  In case of an error, you get a Logo prompt in the
+environment in which the error occurred.  This lets you use Logo
+itself, rather than some special debugging language, to investigate
+the state that gave rise to the error -- specifically, the value of
+variables.  But it's quite common that if procedure A calls B which
+calls C which calls D, an error in A can give faulty inputs to B,
+which aren't caught until one of them becomes an input to a
+primitive down in D.  In dynamically scoped Logo, at the moment of
+the error, all of the local variables of A, B, C, and D are
+naturally available in the error environment.  In a lexically scoped
+language, only D's local variables -- which won't help you find the
+problem -- are available in the error environment.  This is why all
+the Scheme de{*filter*}s I've seen have special instructions, not part
+of Scheme itself, that say "switch to the dynamically previous
+scope" and things like that.  Well, that's okay once you understand
+what an environment *is*, which comes about half way through my
+course for undergraduate CS majors.  It's no good for beginners. - Brian Harvey
+
+Both from: [http://computer-programming-forum.com/25-logo/d60543e3208386a2.htm](http://computer-programming-forum.com/25-logo/d60543e3208386a2.htm)
 
 ---
 
