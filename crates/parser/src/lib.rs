@@ -1,5 +1,9 @@
-enum ParseError {
-    GeneralError,
+use lyn::Scanner;
+
+#[derive(Debug, PartialEq)]
+pub enum ParseError {
+    EndOfLine,
+    Character(usize),
 }
 
 enum AST {
@@ -13,8 +17,8 @@ trait Parser {
 struct LogoParser {}
 
 impl Parser for LogoParser {
-    fn parse(string: &str) -> Result<AST, ParseError> {
-        todo!()
+    fn parse(input: &str) -> Result<AST, ParseError> {
+        Scanner::new(input);
     }
 }
 

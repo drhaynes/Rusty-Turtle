@@ -9,7 +9,16 @@ This version aims to be compatible with UCBLogo, treating it as the de-facto sta
 
 The parser is a single-character look-ahead recursive-descent parser (vs something using a parser-generator). It uses [Lyn](https://github.com/rapodaca/lyn) for convenience of implementation.
 
-Grammar rules are taken from the UCBLogo implementation source code, as their exists no official formal grammar for Logo.
+Grammar rules are taken from the UCBLogo implementation source code, as their exists no official formal grammar for Logo. Parser code [can be found here (Github repo)](https://github.com/jrincayc/ucblogo-code/blob/master/parse.c).
+
+See: "Tokenization" section of the [UCBLogo User Manual](https://people.eecs.berkeley.edu/~bh/usermanual).
+
+Worth noting:
+> Terrapin-style tokenization (e.g., [2+3] is a list with one member)
+but LCSI-style syntax (no special forms except TO).  The best of
+both worlds. - From the 'special features' introduction section of the UCBLogo User Manual.
+
+Another nice reference can be found here: [https://www.calormen.com/jslogo/language.html](https://www.calormen.com/jslogo/language.html)
 
 ## TODO
 * Draw turtle on canvas:
@@ -153,3 +162,9 @@ Volume 3: Beyond Programming
 ### LOGO Foundation Books List
 
 [https://el.media.mit.edu/logo-foundation/resources/books.html](https://el.media.mit.edu/logo-foundation/resources/books.html)
+
+---
+
+### Logo 15-word challenge
+
+[http://www.mathcats.com/gallery/15wordcontest.html](http://www.mathcats.com/gallery/15wordcontest.html)
