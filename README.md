@@ -5,6 +5,20 @@ A minimal Logo programming environment written in Rust, using egui for UI.
 
 This version aims to be compatible with UCBLogo, treating it as the de-facto standard in lieu of an actual Logo standard.
 
+---
+
+### Current thoughts on unicode support:
+
+* Treat the input source code string as UTF-8 (i.e. the same as rust's `String` and `&str` types).
+* Iterate through codepoints when lexing. `Chars::next()`. Presumably this is how `rustc` does it - check.
+* Match as we need against the UTF-8 values for our tokens.
+* Any identifiers will be composed of UTF-8 encoded codepoints
+* No need to worry about the complexity of grapheme clusters.
+* Unicode literal encoding is out-of-scope.
+
+---
+
+
 ### Parser and Grammar
 
 The parser is a single-character look-ahead recursive-descent parser (vs something using a parser-generator). It uses [Lyn](https://github.com/rapodaca/lyn) for convenience of implementation.
@@ -58,6 +72,7 @@ Another nice reference can be found here: [https://www.calormen.com/jslogo/langu
 * Screenshots
 * Printer support
 * Tail recursion optimisation (see below references for implementation details)
+* String interning (see below for rustc implementation details and discussion)
 
 ## Useful references:
 
@@ -168,3 +183,26 @@ Volume 3: Beyond Programming
 ### Logo 15-word challenge
 
 [http://www.mathcats.com/gallery/15wordcontest.html](http://www.mathcats.com/gallery/15wordcontest.html)
+
+---
+
+### String interning
+
+> String interning is a method of storing only one copy of each distinct string value, which must be immutable. Interning strings makes some string processing tasks more time- or space-efficient at the cost of requiring more time when the string is created or interned [Wikipedia](https://en.wikipedia.org/wiki/String_interning)
+
+As interning is a performance optimisation, it is not needed for the initial version.
+
+When the time comes, the following links will be of use.
+
+rustc uses a string interner internally, found here: [https://github.com/rust-lang/rust/blob/master/compiler/rustc_span/src/symbol.rs#L1783](https://github.com/rust-lang/rust/blob/master/compiler/rustc_span/src/symbol.rs#L1783) (as of Jan 2022).
+
+There exists a crate that could be used for this:
+[https://crates.io/crates/string-interner](https://crates.io/crates/string-interner)
+
+and there's a post here: [https://matklad.github.io/2020/03/22/fast-simple-rust-interner.html](https://matklad.github.io/2020/03/22/fast-simple-rust-interner.html) which apparently has the same implementation as rustc and the above crate
+	
+and reddit discussion of same, here: [https://www.reddit.com/r/rust/comments/fn1jxf/blog_post_fast_and_simple_rust_interner/](https://www.reddit.com/r/rust/comments/fn1jxf/blog_post_fast_and_simple_rust_interner/)
+
+and a gist with another implementation (discussed on reddit) here: [https://gist.github.com/CAD97/036c700fad1b4b159421eca089783122](https://gist.github.com/CAD97/036c700fad1b4b159421eca089783122)
+
+This crate is also worth a look. Seems to have a decent API: [https://crates.io/crates/intaglio](https://crates.io/crates/intaglio)
