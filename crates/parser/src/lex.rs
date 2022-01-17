@@ -1,3 +1,5 @@
+use std::str;
+
 #[derive(PartialEq, Copy, Clone, Debug)]
 pub struct Location {
     col: u32,
@@ -22,12 +24,36 @@ impl Location {
     }
 }
 
+#[derive(Debug, PartialEq, Clone)]
+pub enum TokenKind {
+    Identifier,
+    Syntax,
+    Keyword,
+    Number,
+    Operator
+}
+
+#[derive(Debug, PartialEq, Clone)]
+pub struct Token {
+    pub value: String,
+    pub kind: TokenKind,
+    pub loc: Location
+}
+
+pub fn lex(input: &[str::Chars]) -> Result<Vec<Token>, String> {
+    Err(String::from("Fail"))
+}
+
+fn eat_whitespace(input: &[str::Chars], initial_loc: Location) -> Location {
+    unimplemented!();
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn increment() {
+    fn increment_once() {
         let location = Location {
             col: 0,
             line: 0,
@@ -63,5 +89,11 @@ mod tests {
                 index: 6
             }
         );
+    }
+
+    #[test]
+    fn lex_test() {
+        let input = ["Hello".chars()];
+        assert_eq!(lex(&input), Err(String::from("nope")));
     }
 }
